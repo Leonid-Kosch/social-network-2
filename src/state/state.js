@@ -23,6 +23,7 @@ let state = {
         ]
     }
 }
+let mainRender;
 export let addPost = (postText) => {
     let newPost = {
         text: postText,
@@ -30,5 +31,10 @@ export let addPost = (postText) => {
     };
     state.profilePage.postData.push(newPost);
     debugger
+    mainRender(state);
+};
+
+export let subcribe = (opserver) => {
+    mainRender = opserver;
 };
 export default state; 

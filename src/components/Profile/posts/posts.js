@@ -4,8 +4,11 @@ import Post from "./post/post.js";
 function Posts(props) {
     let newPostText = React.createRef(); //переменная в которую попадает инпут 
     let addPost = () => {
-        let postText = newPostText.current.value; //переменная в которую попал текст поста
-        props.addPost(postText)  
+        if (newPostText.current.value != ''){
+            let postText = newPostText.current.value; //переменная в которую попал текст поста
+            props.addPost(postText)  
+            newPostText.current.value = '';
+        }
     };
     return (
         <div className='posts'>
