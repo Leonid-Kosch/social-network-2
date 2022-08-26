@@ -1,0 +1,21 @@
+.nav{
+    box-shadow:0 0 8px var(--colorText);
+    border-radius: 8px;
+    padding: 8px;
+}
+.nav a{
+    color: var(--colorText);
+    display: block;
+    font-size: 16px;
+    padding: 8px;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+.nav a:hover{
+    background-color: #6CD3FA;
+    color: black;
+    cursor: pointer;
+}
+.item{
+    color: red;
+}

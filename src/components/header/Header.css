@@ -1,0 +1,18 @@
+.header{
+    padding: 8px;
+    box-shadow: 0 0 8px var(--colorText);
+    border-radius: 8px;
+}
+.logo{
+    display: inline-block;
+    width: 56px;
+    animation: logo-spin infinite 4s linear;
+}
+.logo img{
+    width: 100%;
+}
+@keyframes logo-spin{
+    100%{
+        transform: rotate(360deg);
+    }
+}
