@@ -25,15 +25,18 @@
     font-size: 32px;
     margin-bottom: 16px;
 }
-.posts__head input{
+.posts__head textarea{
     border: solid 1px var(--colorText);
     border-radius: 4px;
     padding: 7px;
     width: 210px;
     transition: all 0.3s;
+    resize: vertical;
+    max-height: 170px;
+    flex-grow: 1;
 }
-.posts__head input:focus{
-    box-shadow: 0 0 10px ;
+.posts__head textarea:focus{
+    box-shadow: 0 0 10px #6CD3FA;
 }
 .posts__head button{
     padding: 7px;

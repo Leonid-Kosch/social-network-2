@@ -4,12 +4,27 @@ import Post from "./post/post.js";
 function Posts(props) {
     let newPostText = React.createRef(); //переменная в которую попадает инпут 
     let addPost = () => {
-        if (newPostText.current.value != ''){
+        if (newPostText.current.value !== '') {
             let postText = newPostText.current.value; //переменная в которую попал текст поста
-            props.addPost(postText)  
+            props.addPost(postText)
             newPostText.current.value = '';
+        } else {
+            alert('Сначала введите текст поста.');
         }
+        newPostText.current.blur();
     };
+    let addPostKey = (e) => {
+        if (e.code === 'Enter' && !e.shiftKey) {
+            if (newPostText.current.value !== '') {
+                let postText = newPostText.current.value; //переменная в которую попал текст поста
+                props.addPost(postText)
+                newPostText.current.value = '';
+            } else {
+                alert('Сначала введите текст поста.');
+            }
+            newPostText.current.blur();
+        }
+    }
     return (
         <div className='posts'>
             <div className='posts__head'>
@@ -17,7 +32,7 @@ function Posts(props) {
                     Мои посты
                 </h2>
                 <div className='posts__input'>
-                    <input ref={newPostText} placeholder='Введите тексты' type='text' />
+                    <textarea onKeyDown={addPostKey} ref={newPostText} placeholder='Введите текст' type='text' />
                     <button onClick={addPost}>Опубликовать</button>
                 </div>
             </div>
