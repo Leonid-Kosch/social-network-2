@@ -8,7 +8,7 @@ function Dialogs (props) {
             <div className='dialog__list'>
                 {props.dialogPage.dialogNames.map((e)=><Dialogsitem name={e.name} id={e.id}/>)}
             </div>
-            <Messages messageContent={props.dialogPage.messageContent}/>
+            <Messages messageContent={props.dialogPage.messageContent} dispatch={props.dispatch}/>
         </div>
     );
 }

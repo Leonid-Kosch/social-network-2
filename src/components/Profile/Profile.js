@@ -12,7 +12,7 @@ function Profile (props) {
                     Леонид
                 </h3>
             </div>
-            <Posts postData={props.profilePage.postData} addPost={props.addPost}/>
+            <Posts postData={props.profilePage.postData} dispatch={props.dispatch}/>
         </div>
     );
 }

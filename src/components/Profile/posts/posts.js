@@ -1,4 +1,5 @@
 import React from 'react';
+import { addPostActionCreater } from '../../../state/addPost-reducer.js';
 import Post from "./post/post.js";
 
 function Posts(props) {
@@ -6,7 +7,8 @@ function Posts(props) {
     let addPost = () => {
         if (newPostText.current.value !== '') {
             let postText = newPostText.current.value; //переменная в которую попал текст поста
-            props.addPost(postText)
+            let action = addPostActionCreater(postText);
+            props.dispatch(action);
             newPostText.current.value = '';
         } else {
             alert('Сначала введите текст поста.');

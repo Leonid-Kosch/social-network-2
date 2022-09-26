@@ -12,7 +12,7 @@ let mainRender = (state) => {
   root.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App dialogPage={state.dialogPage} profilePage={state.profilePage} addPost={store.addPost.bind(store)} />
+        <App dialogPage={state.dialogPage} profilePage={state.profilePage} dispatch={store.dispatch.bind(store)} />
       </BrowserRouter>
     </React.StrictMode>
   );

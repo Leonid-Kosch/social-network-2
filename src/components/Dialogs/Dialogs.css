@@ -117,7 +117,7 @@
     transition: all 0.7s;
 }
 .messages__managment button:hover{
-    transform: rotate(360deg);
+    transform: rotateX(180deg);
 }
 .messages__managment textarea{
     background-color: rgba(0, 0, 0, 0.458);
@@ -134,6 +134,10 @@
     height:10px;
     line-height: 24px;
     flex-grow: 1;
+    transition: all 0.3s;
+}
+.messages__managment textarea:focus{
+    box-shadow: 0 0 10px #56b1d2;
 }
 
 .messages__managment textarea::-webkit-scrollbar{

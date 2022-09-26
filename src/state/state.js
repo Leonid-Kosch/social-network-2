@@ -1,4 +1,6 @@
-import Me from '../image/me.jpg';
+import Me from '../image/me.jpg'
+import addPostReducer from './addPost-reducer';
+import sendMessageReducer from './sendMessage-reducer';
 let store = {
     _state: { // база данных
         profilePage: {
@@ -32,12 +34,9 @@ let store = {
     mainRender() { // функция в которую попадет функция для обрисовки / рендера  всей социальной сети.
         
     },
-    addPost (postText) { // создем стрелочную функцию addPost которая принимает инфо. postText и экспортируем её. запускаем эту функцию в момент нажатия на кнопку опубликовать
-        let newPost = { // объект в который попадает текст поста и его id.
-            text: postText,
-            id: 5,
-        };
-        this.getState().profilePage.postData.splice(0, 0, newPost); //добавляем новый пост в раздел в баз. данных в postData
+    dispatch (action) {
+        this.getState().profilePage = addPostReducer(this.getState().profilePage, action);
+        this.getState().dialogPage.messageContent = sendMessageReducer(action, this.getState().dialogPage.messageContent);
         this.mainRender(this.getState()); //запускаем функцию для прорисовки всей соц. сети и передаем обновленную баз. данных
     },
     subcribe (opserver) { // создаем функцию subscribe которая принимает информацию oppServer. запускаем эту функцию при обновлении страницы

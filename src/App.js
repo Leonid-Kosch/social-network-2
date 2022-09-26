@@ -16,8 +16,8 @@ function App(props) {
       <Nav />
       <div className='main-content'>
         <Routes>
-          <Route path='/profile' element={<Profile profilePage={props.profilePage} addPost={props.addPost}/>} />
-          <Route path='/dialogs' element={<Dialogs dialogPage={props.dialogPage}/>}/>
+          <Route path='/profile' element={<Profile profilePage={props.profilePage} dispatch={props.dispatch}/>} />
+          <Route path='/dialogs' element={<Dialogs dialogPage={props.dialogPage} dispatch={props.dispatch}/>}/>
           <Route path='/users' element={<Users />} />
         </Routes>
       </div>
