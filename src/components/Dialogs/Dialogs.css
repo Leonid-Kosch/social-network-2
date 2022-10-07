@@ -69,6 +69,7 @@
     color: black;
     font-size: 14px;
     line-height: 150%;
+    white-space: pre-wrap;
 }
 .dialog__list{
     background-color: #6cd4fa89 ;

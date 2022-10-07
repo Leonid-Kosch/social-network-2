@@ -8,6 +8,13 @@ function Messages(props) {
     let textarea; //создаем переменную в которую попадет textarea
     let setTextArea = (e) => { //когда фокусируемся на теге textarea 
         textarea = e.target; //в переменную textarea попадает тег textarea
+        textarea.style.height = textarea.scrollHeight + 'px';
+    }
+    let textareaInput = () => {
+        textarea.style.height = textarea.scrollHeight + 'px';
+    }
+    let textareaBlur = () => {
+        textarea.style.height = 48 + 'px';
     }
     let sendMessage = () => {
         let action = sendMessageActionCreator(textarea.value);
@@ -31,7 +38,7 @@ function Messages(props) {
         <div className="messages">
             {props.messageContent.map((e) => <Message img={e.img} name={e.name} id={e.id} text={e.text} />)}
             <div className="messages__managment">
-                <textarea onFocus={setTextArea} onKeyDown={sendMessageKey} laceholder="Сообщение"></textarea>
+                <textarea onFocus={setTextArea} onKeyDown={sendMessageKey} onInput={textareaInput} onBlur={textareaBlur}  laceholder="Сообщение"></textarea>
                 <button onClick={sendMessage}>⮋</button>
                 
             </div>

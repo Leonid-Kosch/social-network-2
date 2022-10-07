@@ -31,9 +31,12 @@
     padding: 7px;
     width: 210px;
     transition: all 0.3s;
-    resize: vertical;
+    resize: none;
     max-height: 170px;
     flex-grow: 1;
+    min-height: 48px;
+    height:48px;
+    overflow-y: auto;
 }
 .posts__head textarea:focus{
     box-shadow: 0 0 10px #6CD3FA;
@@ -67,10 +70,11 @@
     overflow-y: auto;
     height: 100px;
 }
-.posts__list::-webkit-scrollbar{
+.posts__list::-webkit-scrollbar, .posts__head textarea::-webkit-scrollbar{
+
     width: 5px;
 }
-.posts__list::-webkit-scrollbar-thumb{
+.posts__list::-webkit-scrollbar-thumb, .posts__head textarea::-webkit-scrollbar-thumb{
     width: 5px;
     background-color: #6CD3FA;
     border-radius: 5px;
@@ -94,4 +98,5 @@
 }
 .post p{
     font-style: italic;
+    white-space: pre-wrap;
 }
