@@ -6,14 +6,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import store from './state/redux-store';
+import { Provider } from 'react-redux';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 
 let mainRender = (state) => {
   console.log('ok')
   root.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App dialogPage={state.dialogPage} profilePage={state.profilePage} dispatch={store.dispatch.bind(store)} />
+      <Provider store = {store}>
+      <App dialogPage={state.dialogPage} profilePage={state.profilePage} dispatch={store.dispatch.bind(store)} />
+      </Provider>
       </BrowserRouter>
     </React.StrictMode>
   );
