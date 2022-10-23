@@ -1,11 +1,13 @@
 import React from 'react'
-import { Connect } from "react-redux";
-import Posts from "./posts";
+import { connect } from "react-redux";
+import Posts from "./posts.jsx";
 import addPostActionCreater from '../../../state/addPost-reducer';
 let mapStateToProps = (state) => {
+    debugger
+    console.log(state); 
     return {
         postData: state.profilePage.postData
-    }       
+    }     
 };
 let mapDispatchToProps = (dispatch) => {
     return {
@@ -14,5 +16,6 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 };
-const postContainer = Connect(mapStateToProps) (Posts);
+const postContainer = connect(mapStateToProps, mapDispatchToProps) (Posts);
+console.log(postContainer)
 export default postContainer;

@@ -3,7 +3,7 @@ import './App.css';
 import Dialogs from './components/Dialogs/Dialogs.js';
 import Header from './components/header/Header.js';
 import Nav from './components/Nav/Nav.js';
-import Profile from './components/Profile/Profile.js';
+import Profile from './components/Profile/Profile.jsx';
 import Users from './components/users/Users';
 import { Routes, Route } from 'react-router-dom';
 

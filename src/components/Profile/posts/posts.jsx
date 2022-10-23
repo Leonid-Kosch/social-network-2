@@ -1,8 +1,8 @@
 import React from 'react';
-import { addPostActionCreater } from '../../../state/addPost-reducer.js';
 import Post from "./post/post.js";
 
 function Posts(props) {
+    console.log(props)
     let newPostText = React.createRef(); //переменная в которую попадает инпут 
     let textareaInput = () => {
         newPostText.current.style.height = newPostText.current.scrollHeight + 'px';   
@@ -16,8 +16,7 @@ function Posts(props) {
     let addPost = () => {
         if (newPostText.current.value !== '') {
             let postText = newPostText.current.value; //переменная в которую попал текст поста
-            let action = addPostActionCreater(postText);
-            props.dispatch(action);
+            props.addPost(postText);
             newPostText.current.value = '';
         } else {
             alert('Сначала введите текст поста.');
@@ -28,8 +27,7 @@ function Posts(props) {
         if (e.code === 'Enter' && !e.shiftKey) {
             if (newPostText.current.value !== '') {
                 let postText = newPostText.current.value; //переменная в которую попал текст поста
-                let action = addPostActionCreater(postText);
-                props.dispatch(action);
+                props.addPost(postText);
                 newPostText.current.value = '';
             } else {
                 alert('Сначала введите текст поста.');
