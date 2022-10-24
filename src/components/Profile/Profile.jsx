@@ -1,7 +1,7 @@
 import React from 'react';
 import './Profile.css';
 import Photo from '../../image/me.jpg';
-import postContainer from './posts/postsContainer';
+import PostContainer from './posts/PostsContainer';
 
 function Profile () {
     return(
@@ -12,7 +12,7 @@ function Profile () {
                     Леонид
                 </h3>
             </div>
-            <postContainer />
+            <PostContainer />
         </div>
     );
 }

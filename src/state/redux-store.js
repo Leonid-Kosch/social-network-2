@@ -9,3 +9,4 @@ let reducersList = combineReducers(
 );
 let store = createStore(reducersList)
 export default store;
+window.store = store;

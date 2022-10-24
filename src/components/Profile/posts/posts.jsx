@@ -2,37 +2,40 @@ import React from 'react';
 import Post from "./post/post.js";
 
 function Posts(props) {
-    console.log(props)
-    let newPostText = React.createRef(); //переменная в которую попадает инпут 
+    let textarea;
     let textareaInput = () => {
-        newPostText.current.style.height = newPostText.current.scrollHeight + 'px';   
+       textarea.style.height =textarea.scrollHeight + 'px';   
     };
     let textareaBLur = () => {
-        newPostText.current.style.height = 48 + 'px'
+       textarea.style.height = 48 + 'px'
     };
-    let textareaFocus = () => {
-        newPostText.current.style.height = newPostText.current.scrollHeight + 'px';
+    let textareaFocus = (e) => {
+        textarea = e.target;
+        console.log(textarea);
+       textarea.style.height =textarea.scrollHeight + 'px';
     };
     let addPost = () => {
-        if (newPostText.current.value !== '') {
-            let postText = newPostText.current.value; //переменная в которую попал текст поста
+        if (textarea.value !== '') {
+            let postText =textarea.value; //переменная в которую попал текст поста
+            console.log(props.addPost)
             props.addPost(postText);
-            newPostText.current.value = '';
+            console.log('ok')
+           textarea.value = '';
         } else {
             alert('Сначала введите текст поста.');
         }
-        newPostText.current.blur();
+       textarea.blur();
     };
     let addPostKey = (e) => {
         if (e.code === 'Enter' && !e.shiftKey) {
-            if (newPostText.current.value !== '') {
-                let postText = newPostText.current.value; //переменная в которую попал текст поста
+            if (textarea.value !== '') {
+                let postText =textarea.value; //переменная в которую попал текст поста
                 props.addPost(postText);
-                newPostText.current.value = '';
+               textarea.value = '';
             } else {
                 alert('Сначала введите текст поста.');
             }
-            newPostText.current.blur();
+           textarea.blur();
         }
     }
     return (
@@ -42,7 +45,7 @@ function Posts(props) {
                     Мои посты
                 </h2>
                 <div className='posts__input'>
-                    <textarea onKeyDown={addPostKey} ref={newPostText} onInput={textareaInput} onBlur={textareaBLur} onFocus={textareaFocus} placeholder='Введите текст' type='text' />
+                    <textarea onKeyDown={addPostKey}  onInput={textareaInput} onBlur={textareaBLur} onFocus={textareaFocus} placeholder='Введите текст' type='text' />
                     <button onClick={addPost}>Опубликовать</button>
                 </div>
             </div>
